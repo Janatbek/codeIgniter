@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>The current time and date:</h1>
-	<div id='time_display'> <p><?php echo date("M j, Y");?></p><p><?php echo date("g:i a"); ?></p> </div>	
+	<div id='time_display'> <p><?php echo $month; ?></p><p><?php echo $time; ?></p> </div>	
 </div>
 
 </body>
