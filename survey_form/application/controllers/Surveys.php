@@ -7,11 +7,5 @@ class Surveys extends CI_Controller {
 	{
 		$this->load->view('surveys_view');
 	}
-	public function process_form()
-	{
-		if($this->input->post())
-		{
-			$this->view_data[]
-		}	
-	} 
+	
 }

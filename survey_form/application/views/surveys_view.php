@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 <body>
 	<div id="wrapper">
-		<form action="surveys/process_form" method="post">
+		<form action="result" method="post">
 			<div>
 				<label for="name">Your Name:</label>
 				<input type="text" name="first_name">
@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<textarea name="comment"></textarea>
 				<input type="submit" value="Submit">
 			</div>
+
 		</form>
 
 		
