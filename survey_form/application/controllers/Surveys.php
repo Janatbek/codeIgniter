@@ -11,7 +11,7 @@ class Surveys extends CI_Controller {
 	{
 		if($this->input->post())
 		{
-
+			$this->view_data[]
 		}	
 	} 
 }
