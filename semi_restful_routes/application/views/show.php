@@ -1,20 +1,39 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product 1 Info | Semi Restful Route Demo</title>
+    <title>Edit Product 1 | Semi Restful Route Demo</title>
 </head>
 <body>
+	<?php foreach ($itemsList as $toShow) { 
+	?>
+	<h1>Product <?php echo$toShow['id']; ?> </h1>
+	<div>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><?php echo$toShow['name']; ?></td>		
+			</tr>
+			<tr>
+				<td>Description:</td>
+				<td><?php echo$toShow['description']; ?></td>
+			</tr>
+			<tr>
+				<td>Price::</td>
+				<td><?php echo$toShow['price']; ?></td>
+			</tr>
+		</table>
+	</div>
+	<a href="/products/edit/<?php echo$toShow['id']; ?>">Edit</a> | <a href="/products/index">Back</a>
+	<?php
+	}
+	?>
+	
 
-<h1>Product 1</h1>
-<p>Name:    Hose</p>
-<p>Description:    For watering things</p>
-<p>Price:    $14.99</p>
 
-	<a href="edit">Edit</a> | <a href="index">Back</a>
+
 
 </body>
 </html>

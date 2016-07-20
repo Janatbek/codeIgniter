@@ -10,52 +10,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>Products</h1>
-	<table>
-		<thead>
-			<tr>
-				<td>Name</td>
-				<td>Description</td>
-				<td>Price</td>
-				<td>Actions</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Hose</td>
-				<td>For watering garden</td>
-				<td>14.99</td>
-				<td>
-					<a href="show">Show</a> | <a href="edit">Edit</a> | <a href="destroy">REMOVE</a>
-				</td>
-			</tr>
-			<tr>
-				<td>Toaster</td>
-				<td>Bread warming device</td>
-				<td>29.99</td>
-				<td>
-					<a href="show">Show</a> | <a href="edit">Edit</a> | <a href="destroy">REMOVE</a>
-				</td>
-			</tr>
-			<tr>
-				<td>T-shirt</td>
-				<td>with coding dojo logo</td>
-				<td>39.95</td>
-				<td>
-					<a href="show">Show</a> | <a href="edit">Edit</a> | <a href="destroy">REMOVE</a>
-				</td>
-			</tr>
-			<tr>
-				<td>website</td>
-				<td>For information</td>
-				<td>15000</td>
-				<td>
-					<a href="show">Show</a> | <a href="edit">Edit</a> | <a href="destroy">REMOVE</a>
-				</td>
-			</tr>
 
+	<table>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+	
+		<tbody>
+		<?php foreach ($store_items as $item) {
+			
+		?>
+			<tr>
+				<td><?=$item['name']?></td>
+				<td><?=$item['description']?></td>
+				<td><?=$item['price']?></td>
+				<td>
+					<a href="/products/show/<?=$item['id']?>">Show</a> | <a href="/products/edit/<?=$item['id']?>">Edit</a> | <a href="destroy/<?=$item['id']?>">REMOVE</a>
+				</td>
+			</tr>
+		<?php
+		} 
+		?>
+			
 		</tbody>
 	</table>
-			<a href="add_product">Add a new product</a>
+			<a href="/products/add">Add a new product</a>
 
 </div>
 

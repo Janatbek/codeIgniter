@@ -7,19 +7,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Edit Product 1 | Semi Restful Route Demo</title>
 </head>
 <body>
-
-<h1>Edit Product 3</h1>
+<?php foreach ($itemsList as $editing) { 
+?>
+<h1>Edit Product <?php echo $editing['id']; ?></h1>
 <div>
-<form action="update" method="post">
+<form action="/products/update/<?php echo $editing['id']; ?>" method="post">
 <p>Name:</p>
-<label><input type="text" value="T-Shirt"></label>
+<input type="text" name="name"value="<?php echo$editing['name']; ?>">
 <p>Description:</p>
-<label><input type="text" value="with CodingDojo logo"></label>
+<textarea name="description" rows="5" cols="40"><?php echo $editing['description']; ?></textarea>
 <p>Price:</p>
-<label><input type="text" value="Price"></label>
+<input type="text" name="price" value=" <?php echo $editing['price']; ?>">
 <input type="submit" value="Update">
+</form>
+<?php
 
-<a href="show">Show</a> | <a href="index">Back</a>
+}
+?>
+
+<a href="/products/show/<?=$editing['id']?>">Show</a> | <a href="/products/index">Back</a>
 
 </body>
 </html>

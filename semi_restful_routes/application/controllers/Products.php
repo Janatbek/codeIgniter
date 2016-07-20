@@ -3,40 +3,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Products extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('product');
+	}
 	public function index()
 	{
-		$this->load->view('index');
+		$dbResult=$this->product->get_all();
+		$this->load->view('index', $product_list = array('store_items' => $dbResult));
 		
 	}
-	public function add_product()
+	public function add()
 	{
-		
 		$this->load->view('new_product');
 
 	}
+
 	public function create(){
-		if($this->session->userdata)
-		{
-			echo "we are in create method";	}
+		$post = $this->input->post();
+		$this->product->add_product(array('name' => $post['name'],'description' => $post['description'],'price' => $post['price']));
+		redirect('/');
 		}
 
-	public function show()
+	public function show($id)
 	{
-		echo "I am showing";
-		$this->load->view('show');
-	}
-	public function edit()
+		$item_to_show = $this->product->show_item($id);
+		$this->load->view('show', $show = array('itemsList' => $item_to_show));	}
+	public function edit($id)
 	{
-		$this->load->view('edit');
+		$item_to_edit = $this->product->edit_item($id);
+		$this->load->view('edit', $item_to_edit = array('itemsList' => $item_to_edit));
 	}
 
-	public function update()
+	public function update($id)
 	{
-		echo "on update page";
+		$post = $this->input->post();
+		$this->product->update_item(array('id' => $id, 'name' => $post['name'],'description' => $post['description'],'price' => $post['price']));
+		//var_dump($me); die("in update page");
 	}
-	public function destroy()
+	public function destroy($id)
 	{
-		echo "We are destroyin the world";
+		$this->product->remove_item($id);
+		redirect('/');
 	}
 
 	
