@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('login_view');
+		$this->load->view('welcome_page');
 	}
 	public function create()
 	{
@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 	public function register()
 	{
 		//$post = $this->session->userdata();
-		$post = $this->input->();
+		$post = $this->input->post();
 		var_dump($post);
 		echo "registration page";
 	}
